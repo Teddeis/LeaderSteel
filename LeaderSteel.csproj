@@ -393,6 +393,7 @@
     <Compile Include="ViewModel\DB.cs" />
     <Compile Include="ViewModel\DBCorpus.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Search.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCombo.cs" />
     <Compile Include="ViewModel\ViewModelListBox.cs" />

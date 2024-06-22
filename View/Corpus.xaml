@@ -25,9 +25,9 @@
                 <Grid Background="Black">
                     <TextBox x:Name="BoxNumber" HorizontalAlignment="Left" Margin="139,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
                     <Label FontSize="14" Foreground="White" Content="Номер ящика" HorizontalAlignment="Left" Margin="23,311,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="Quantity" HorizontalAlignment="Left" Margin="139,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput" />
+                    <TextBox MaxLength="4" x:Name="Quantity" HorizontalAlignment="Left" Margin="139,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput" />
                     <Label FontSize="14" Foreground="White" Content="Количество" HorizontalAlignment="Left" Margin="36,350,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="Weight" HorizontalAlignment="Left" Margin="137,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
+                    <TextBox MaxLength="5" x:Name="Weight" HorizontalAlignment="Left" Margin="137,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
                     <Label FontSize="14" Foreground="White" Content="Вес ящика" HorizontalAlignment="Left" Margin="43,392,0,0" VerticalAlignment="Top"/>
 
                     <ComboBox x:Name="Warehouse" HorizontalAlignment="Left" Margin="137,41,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Warehouse_SelectionChanged"/>
@@ -51,11 +51,11 @@
                     <Button Background="Black"  Foreground="White" Content="Сохранить" HorizontalAlignment="Left" Margin="23,446,0,0" VerticalAlignment="Top" Height="36" Width="96" Click="Button_Click"/>
 
 
-                    <TextBox x:Name="LengthCorpus" HorizontalAlignment="Left" Margin="425,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
+                    <TextBox MaxLength="5" x:Name="LengthCorpus" HorizontalAlignment="Left" Margin="425,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
                     <Label FontSize="14" Foreground="White" Content="Длина ящика" HorizontalAlignment="Left" Margin="311,311,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="WidthCorpus" HorizontalAlignment="Left" Margin="425,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
+                    <TextBox MaxLength="5" x:Name="WidthCorpus" HorizontalAlignment="Left" Margin="425,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
                     <Label FontSize="14" Foreground="White" Content="Ширина ящика" HorizontalAlignment="Left" Margin="311,350,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="HeightCorpus" HorizontalAlignment="Left" Margin="425,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
+                    <TextBox MaxLength="5" x:Name="HeightCorpus" HorizontalAlignment="Left" Margin="425,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" PreviewTextInput="QWLWH_PreviewTextInput"/>
                     <Label FontSize="14" Foreground="White" Content="Высота ящика" HorizontalAlignment="Left" Margin="315,392,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="Warlabel" Content="Label" HorizontalAlignment="Left" Margin="272,41,0,0" VerticalAlignment="Top" Width="19" Height="22"/>
                     <Label x:Name="Transplabel" Content="Label" HorizontalAlignment="Left" Margin="272,117,0,0" VerticalAlignment="Top" Height="22" Width="19"/>
@@ -65,9 +65,11 @@
             </TabItem>
             <TabItem Header="Список">
                 <Grid Background="Black">
-                    <ListBox BorderBrush="Transparent" Foreground="White" Background="Transparent" x:Name="corpuslist" Margin="10,42,10,41" SelectionChanged="corpuslist_SelectionChanged"/>
+                    <ListBox FontSize="14" BorderBrush="Transparent" Foreground="White" Background="Transparent" x:Name="corpuslist" Margin="10,42,10,41" SelectionChanged="corpuslist_SelectionChanged"/>
                     <TextBox Visibility="Hidden" x:Name="deletes" HorizontalAlignment="Left" Margin="622,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" IsReadOnly="True" Height="26"/>
                     <Button Background="Black"  Foreground="White" Content="Удалить" HorizontalAlignment="Left" Margin="10,456,0,0" VerticalAlignment="Top" Height="26" Width="94" Click="Button_Click_2"/>
+                    <TextBox x:Name="searchs" Background="Transparent" Foreground="White" HorizontalAlignment="Left" Margin="630,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Height="27"/>
+                    <Label FontSize="16" Content="🔎" Foreground="White" HorizontalAlignment="Left" Margin="598,8,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>

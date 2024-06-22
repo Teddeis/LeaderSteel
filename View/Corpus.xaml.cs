@@ -29,6 +29,7 @@ namespace LeaderSteel.View
         DB db = new DB();
         ViewModelCombo v = new ViewModelCombo();
         DBCorpus d = new DBCorpus();
+        Search s = new Search();
         public Corpus()
         {
             InitializeComponent();
@@ -190,6 +191,12 @@ namespace LeaderSteel.View
 
                 deletes.Text = lines[0];
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            corpuslist.Items.Clear();
+            s.SearchAll(corpuslist, searchs);
         }
     }
 }

@@ -19,22 +19,13 @@ namespace LeaderSteel.ViewModel
 
             using (var command = db.con.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM Corpus";
+                command.CommandText = "SELECT Corpus.id,Warehouse.NumberWarehouse,Transport.Transport ,Material.Type,Corpus.BoxNumber,Corpus.Quantity,Corpus.LengthCorpus,Corpus.WidthCorpus,Corpus.HeightCorpus,Corpus.Weight FROM Corpus, Warehouse, Material,Transport where Corpus.idWarehouse = Warehouse.id and Corpus.idTransport = Transport.id and Corpus.idMaterial = Material.id";
 
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        string row = "";
-
-                        for (int i = 0; i < reader.FieldCount; i++)
-                        {
-                            string value = reader[i].ToString();
-
-                            row += $"{value} | ";
-                        }
-
-                        listBox.Items.Add(row);
+                        listBox.Items.Add($"id: {reader["id"].ToString()} | Склад: {reader["NumberWarehouse"].ToString()} | Транспорт: { reader["Transport"].ToString()} | Материал: {reader["Type"].ToString()} | Ящик: {reader["BoxNumber"].ToString()} | Количество: {reader["Quantity"].ToString()} | Габариты: {reader["LengthCorpus"].ToString()}x{reader["WidthCorpus"].ToString()}x{reader["HeightCorpus"].ToString()} | Вес: {reader["Weight"].ToString()}");
                     }
                 }
             }
