@@ -15,7 +15,7 @@ namespace LeaderSteel.ViewModel
         {
             db.con.Open();
 
-            string query = $"SELECT Type,Characteristic,Quantity,Icons FROM Material";
+            string query = $"SELECT Type,Characteristic,Icons FROM Material";
 
             using (var command = new SqlCommand(query, db.con))
             {

@@ -34,7 +34,7 @@ namespace LeaderSteel.View
         public void S2()
         {
             db.con.Open();
-            string query = $"SELECT Type, Characteristic, Quantity, Icons FROM Material WHERE Type = '{OneT1.Text}'";
+            string query = $"SELECT Type, Characteristic, Icons FROM Material WHERE Type = '{OneT1.Text}'";
 
             using (var command = new SqlCommand(query, db.con))
             {
@@ -43,7 +43,6 @@ namespace LeaderSteel.View
                     while (reader.Read())
                     {
                         OneT2.Text = reader["Characteristic"].ToString();
-                        OneT3.Text = reader["Quantity"].ToString() + " шт.";
                         string imagePath = reader["Icons"].ToString();
                         One.Source = new BitmapImage(new Uri($@"\View\Res\Icons\{imagePath}", UriKind.Relative));
                     }
