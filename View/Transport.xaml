@@ -20,7 +20,7 @@
             <Image HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Source="Res/Background/Topbacking.png" Height="80" Width="1000" Grid.Row="1"/>
         </Border>
         <Image HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Fill" Source="Res/Background/backing.png" Height="580" Width="1000" Grid.Row="1"/>
-        <ComboBox x:Name="Combo" Focusable="False" HorizontalAlignment="Left" Margin="348,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="274" Height="26" SelectionChanged="Combo_SelectionChanged" HorizontalContentAlignment="Center" />
+        <ComboBox x:Name="Combo" Focusable="False" HorizontalAlignment="Left" Margin="348,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="463" Height="26" SelectionChanged="Combo_SelectionChanged" HorizontalContentAlignment="Center" />
         <Grid Grid.Row="1" Margin="348,46,189,38">
             <Grid.RowDefinitions>
                 <RowDefinition Height="280"/>

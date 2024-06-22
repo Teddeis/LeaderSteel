@@ -36,7 +36,7 @@ namespace LeaderSteel.View
         public void S2()
         {
             db.con.Open();
-            string query = $"SELECT Transport, LengthCorpus,WidthCorpus,HeightCorpus, Images FROM Transport WHERE Transport = '{OneT1.Text}'";
+            string query = $"SELECT Transport, LengthCorpus,MaxLengthCorpus,WidthCorpus,MaxWidthCorpus,HeightCorpus,MaxHeightCorpus, Images FROM Transport WHERE Transport = '{OneT1.Text}'";
 
             using (var command = new SqlCommand(query, db.con))
             {
@@ -45,7 +45,7 @@ namespace LeaderSteel.View
                     while (reader.Read())
                     {
                         OneT1.Text = reader["Transport"].ToString();
-                        OneT2.Text = $"Длина: {reader["LengthCorpus"].ToString()} мм.\nШирина: {reader["WidthCorpus"].ToString()} мм.\nВысота: {reader["HeightCorpus"].ToString()} мм.";
+                        OneT2.Text = $"Длина: {reader["LengthCorpus"].ToString()}-{reader["MaxLengthCorpus"].ToString()} мм.\nШирина: {reader["WidthCorpus"].ToString()}-{reader["MaxWidthCorpus"].ToString()} мм.\nВысота: {reader["HeightCorpus"].ToString()}-{reader["MaxHeightCorpus"].ToString()} мм.";
                         string imagePath = reader["Images"].ToString();
                         One.Source = new BitmapImage(new Uri($@"\View\Res\Transport\{imagePath}", UriKind.Relative));
                     }

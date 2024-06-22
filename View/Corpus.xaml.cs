@@ -1,4 +1,5 @@
 ﻿using LeaderSteel.ViewModel;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -189,7 +190,7 @@ namespace LeaderSteel.View
 
                 var lines = selectedItemText.Split();
 
-                deletes.Text = lines[0];
+                deletes.Text = lines[1];
             }
         }
 
@@ -197,6 +198,58 @@ namespace LeaderSteel.View
         {
             corpuslist.Items.Clear();
             s.SearchAll(corpuslist, searchs);
+        }
+
+        public void DD()
+        {
+            int lengthCorpus = int.Parse(LengthCorpus.Text);
+            int widthCorpus = int.Parse(WidthCorpus.Text);
+            int heightCorpus = int.Parse(HeightCorpus.Text);
+
+
+            SqlCommand command = new SqlCommand("SELECT * FROM Transport WHERE MaxLengthCorpus >= @maxLength AND MaxWidthCorpus >= @maxWidth AND MaxHeightCorpus >= @maxHeight", db.con);
+            command.Parameters.AddWithValue("@maxLength", lengthCorpus);
+            command.Parameters.AddWithValue("@maxWidth", widthCorpus);
+            command.Parameters.AddWithValue("@maxHeight", heightCorpus);
+
+            db.con.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+                Compatibility.Items.Clear();
+
+            while (reader.Read())
+            {
+                Compatibility.Items.Add(reader["Transport"]);
+            }
+
+            reader.Close();
+            db.con.Close();
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(LengthCorpus.Text) || string.IsNullOrWhiteSpace(WidthCorpus.Text) || string.IsNullOrWhiteSpace(HeightCorpus.Text))
+            {
+                System.Windows.MessageBox.Show("Заполните Длину/Ширину/Высоту", "Ошибка", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                DD();
+            }
+        }
+
+        private void Compatibility_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = Compatibility.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                var selectedItemText = selectedItem.ToString();
+
+                var lines = selectedItemText;
+
+                Transport.Text = lines;
+            }
         }
     }
 }
